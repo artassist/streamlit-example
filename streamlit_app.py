@@ -2,7 +2,7 @@ import openai
 import streamlit as st
 
 # Initialize the OpenAI API client
-openai.api_key = "<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>"
+openai.api_key = "<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>"
 
 # Create a text input field for the user to enter the keyword for the viral social media posts
 keyword_input = st.text_input("Enter a keyword for viral social media posts:")
