@@ -2,7 +2,7 @@ import openai
 import streamlit as st
 
 # Initialize the OpenAI API client
-openai.api_key = "<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>"
+openai.api_key = "<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>"
 headers = {
     "Authorization": "Bearer {}".format(openai.api_key)
 }
