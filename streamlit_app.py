@@ -2,7 +2,7 @@ import openai
 import streamlit as st
 
 # Initialize the OpenAI API client
-openai.api_key = "<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>"
+openai.api_key = "<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>"
 
 
 # Create a text input field for the user to enter the text to be summarized
