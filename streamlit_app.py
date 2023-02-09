@@ -9,7 +9,7 @@ openai.api_key = "<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>"
 text_input = st.text_area("Enter text to summarize:")
 # Use the GPT-3 API to summarize the text
 model_engine = "text-davinci-002"
-prompt = (f"summarize: {text_input}"
+prompt = (f"summarize: {text_input}")
 
 completions = openai.Completion.create(
     engine=model_engine,
