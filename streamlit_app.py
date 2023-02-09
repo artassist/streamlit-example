@@ -2,26 +2,29 @@ import openai
 import streamlit as st
 
 # Initialize the OpenAI API client
-openai.api_key = "<your OpenAI API key>"
+openai.api_key = "<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>"
 
-# Create a text input field for the user to enter the keyword
-keyword = st.text_input("Enter the keyword to generate viral social media posts:")
+# Create a text input field for the user to enter the keyword for the viral social media posts
+keyword_input = st.text_input("Enter a keyword for viral social media posts:")
 
-# Use the GPT-3 API to generate the social media posts
+# Use the GPT-3 API to generate 20 viral social media posts for the given keyword
 model_engine = "text-davinci-002"
-prompt = (f"generate 20 viral social media posts about {keyword}")
+prompt = (f"generate 20 viral social media posts about {keyword_input}")
 
-completions = openai.Completion.create(
-    engine=model_engine,
-    prompt=prompt,
-    max_tokens=1024,
-    n=1,
-    stop=None,
-    temperature=0.5,
-)
-
-# Extract the generated social media posts from the API response
-posts = completions.choices[0].text
-
-# Display the generated social media posts in the Streamlit app
-st.write("Viral Social Media Posts:", posts)
+try:
+    completions = openai.Completion.create(
+        engine=model_engine,
+        prompt=prompt,
+        max_tokens=1024,
+        n=20,
+        stop=None,
+        temperature=0.5,
+    )
+    # Extract the generated viral social media posts from the API response
+    messages = [choice.text for choice in completions.choices]
+    # Display the generated viral social media posts in the Streamlit app
+    st.write("Viral Social Media Posts:")
+    for message in messages:
+        st.write("-", message)
+except Exception as e:
+    st.write("An error occurred while generating the viral social media posts:", e)
